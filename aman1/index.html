@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keywise — Password Strength Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header>
+        <a class="brand" href="#" aria-label="Keywise home"><span class="brand-mark">K</span>KEYWISE</a>
+        <p class="header-note"><span></span> PRIVATE BY DESIGN</p>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow">PASSWORD HYGIENE, MADE SIMPLE</p>
+        <h1>Is your password<br /><em>pulling its weight?</em></h1>
+        <p class="intro">A private, instant check for the signals that make passwords resilient. Nothing you type leaves this page.</p>
+      </section>
+
+      <section class="analyzer" aria-label="Password analyzer">
+        <div class="password-entry">
+          <label for="password">TRY A PASSWORD</label>
+          <div class="input-wrap">
+            <input id="password" type="password" autocomplete="new-password" placeholder="Type a password to check" />
+            <button class="show-button" id="toggleVisibility" type="button" aria-label="Show password">SHOW</button>
+          </div>
+          <div class="meter-row" aria-live="polite">
+            <div class="meter" aria-label="Password strength"><i></i><i></i><i></i><i></i></div>
+            <strong id="strengthLabel">Waiting for input</strong>
+            <span id="score">0 / 100</span>
+          </div>
+        </div>
+
+        <aside class="score-card" aria-live="polite">
+          <span class="card-label">ESTIMATED TIME TO CRACK</span>
+          <strong id="crackTime">—</strong>
+          <p id="crackDetail">Enter a password to estimate.</p>
+        </aside>
+      </section>
+
+      <section class="details-grid">
+        <article class="checks-panel">
+          <div class="section-heading"><span>01</span><h2>Strength signals</h2></div>
+          <ul class="checks" id="checks">
+            <li data-check="length"><b></b><span>At least 12 characters</span><small>0 / 12</small></li>
+            <li data-check="case"><b></b><span>Upper & lowercase letters</span><small>—</small></li>
+            <li data-check="number"><b></b><span>At least one number</span><small>—</small></li>
+            <li data-check="symbol"><b></b><span>At least one symbol</span><small>—</small></li>
+            <li data-check="unique"><b></b><span>Not a common pattern</span><small>—</small></li>
+          </ul>
+        </article>
+
+        <article class="advice-panel">
+          <div class="section-heading"><span>02</span><h2>Make it stronger</h2></div>
+          <p id="advice">Start by entering a password above. We’ll point out the highest-impact improvements.</p>
+          <button id="generate" type="button">Generate a strong password <span>↗</span></button>
+          <div class="generated" id="generatedBox" hidden>
+            <code id="generatedPassword"></code><button id="copyPassword" type="button" aria-label="Copy generated password">COPY</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="security-note">
+        <div class="lock">⌁</div>
+        <div><h2>Built to stay out of your business.</h2><p>Analysis happens locally in your browser. We don’t store, transmit, or log passwords — ever.</p></div>
+        <span class="local-pill">LOCAL ANALYSIS</span>
+      </section>
+
+      <footer><span>© 2026 KEYWISE</span><span>USE A UNIQUE PASSWORD FOR EVERY ACCOUNT</span></footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
